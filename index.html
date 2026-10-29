@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="Projectiv teaches you to build websites, from your first line of HTML to JavaScript projects.">
+<title>Projectiv — Learn to Build for the Web</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233a;--text:#f4f7ff;--muted:#aab5cc;--brand:#8b7cff;--brand2:#48e0c2;--line:#28334d;--good:#71e6a5;--shadow:0 18px 50px #0003}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#29245a 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid #ffffff12;gap:15px}.logo{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem;letter-spacing:-.5px}.logo-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#101827;font-weight:950}.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.93rem}.navlinks a:hover{color:white}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:750;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;gap:8px;transition:transform .15s,opacity .15s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(135deg,var(--brand),#6e9cff);color:white}.secondary{border:1px solid var(--line);background:#ffffff08;color:var(--text)}.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:42px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #8b7cff55;background:#8b7cff15;color:#c9c2ff;border-radius:100px;padding:6px 12px;font-size:.84rem;font-weight:700}.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--brand2)}h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.03;letter-spacing:-.065em;margin:20px 0}h1 span{background:linear-gradient(100deg,#a89aff,#48e0c2);background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:1.08rem;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.tiny{font-size:.86rem;color:var(--muted)}.editor-card{background:#0d1425;border:1px solid #394360;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(1deg)}.editor-top{display:flex;align-items:center;gap:7px;padding:14px 16px;background:#161f34;border-bottom:1px solid var(--line);color:var(--muted);font-size:.83rem}.dot{height:9px;width:9px;border-radius:50%;background:#ff6b79}.dot:nth-child(2){background:#ffc55e}.dot:nth-child(3){background:#55d9a3}.editor-top span{margin-left:auto}.code{padding:22px;overflow:auto;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;color:#dbe5ff}.pink{color:#ff9cc8}.green{color:#8ce7ba}.blue{color:#8dc8ff}.yellow{color:#ffe39a}.preview{margin:0 16px 16px;background:#f6f7fb;color:#1a2340;border-radius:12px;padding:16px}.preview strong{font-size:1.05rem}.preview p{font-size:.84rem;color:#59647a;margin:5px 0 10px}.mini-btn{display:inline-block;background:#7565ef;color:white;padding:7px 10px;border-radius:7px;font-size:.78rem}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 66px}.stat{border:1px solid var(--line);background:#ffffff05;border-radius:14px;padding:17px;text-align:center}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.85rem;color:var(--muted)}section{padding:36px 0 55px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:23px}.section-head h2{font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.15;letter-spacing:-.04em;margin:0}.section-head p{color:var(--muted);margin:8px 0 0}.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.course{background:linear-gradient(145deg,#172139,#11192a);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;min-height:250px}.course-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;font-weight:900;font-size:1.2rem;margin-bottom:18px}.html-icon{background:#ff9e6820;color:#ffab78}.css-icon{background:#8c86ff20;color:#a8a2ff}.js-icon{background:#f7d65a20;color:#f7d65a}.tag{color:var(--brand2);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.course h3{margin:5px 0;font-size:1.2rem}.course p{color:var(--muted);font-size:.93rem;margin:6px 0 18px}.course .btn{margin-top:auto;align-self:flex-start}.path{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{border-left:2px solid var(--brand);padding:5px 0 5px 18px}.step small{color:var(--brand2);font-weight:800}.step h3{margin:4px 0}.step p{margin:0;color:var(--muted);font-size:.92rem}.playground{display:grid;grid-template-columns:1fr 1fr;gap:16px}.playbox{border:1px solid var(--line);background:var(--panel);border-radius:16px;overflow:hidden}.playbox header{padding:13px 16px;border-bottom:1px solid var(--line);font-weight:750}.playbox textarea{display:block;width:100%;min-height:220px;resize:vertical;border:0;outline:0;background:#0b1020;color:#dce6ff;padding:16px;font:13px/1.7 ui-monospace,monospace}.playbox iframe{width:100%;height:260px;border:0;background:white}.play-actions{display:flex;gap:10px;padding:12px 16px;flex-wrap:wrap}.lesson-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.lesson{padding:20px;border:1px solid var(--line);background:#ffffff05;border-radius:16px}.lesson h3{margin:0 0 8px}.lesson p{color:var(--muted);margin:0 0 12px}.quiz{border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#171c39,#12272f);padding:25px}.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.quiz-options button{background:#ffffff08;border:1px solid var(--line);color:var(--text);padding:12px;border-radius:10px;text-align:left;cursor:pointer}.quiz-options button:hover{border-color:var(--brand)}#quizFeedback{min-height:26px;color:var(--brand2);font-weight:700}.cta{padding:28px;border-radius:20px;background:linear-gradient(120deg,#6f61e8,#326d8a);display:flex;align-items:center;justify-content:space-between;gap:20px}.cta h2{margin:0;font-size:1.7rem}.cta p{margin:6px 0 0;color:#e6e9ff}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.88rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.notice{font-size:.82rem;color:var(--muted);margin-top:12px}.hidden{display:none!important}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:48px;gap:28px}.editor-card{transform:none}.courses{grid-template-columns:1fr}.course{min-height:0}.path{grid-template-columns:1fr;gap:22px}.stats{margin-bottom:35px}.navlinks{gap:12px;font-size:.83rem}.playground,.lesson-grid{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.section-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:440px){.navlinks a:nth-child(2){display:none}.nav .btn{padding:10px 12px;font-size:.83rem}.hero{padding-top:35px}h1{font-size:2.7rem}.quiz-options{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:12px 5px}.stat b{font-size:1.1rem}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="logo" href="#home" aria-label="Projectiv home"><span class="logo-mark">P</span> projectiv<span style="color:var(--brand2)">.</span></a>
+  <nav class="navlinks" aria-label="Main navigation"><a href="#courses">Courses</a><a href="#roadmap">Roadmap</a><a href="#playground">Practice</a></nav>
+  <a class="btn secondary" href="#courses">Start learning ↗</a>
+</header>
+<main>
+<section class="wrap hero" id="home">
+  <div>
+    <span class="eyebrow"><i></i> YOUR JOURNEY INTO WEB DEVELOPMENT</span>
+    <h1>Turn your ideas into <span>websites.</span></h1>
+    <p>Learn to build for the web, one small step at a time. Start with zero experience and work your way towards real projects—with clear lessons and hands-on practice.</p>
+    <div class="actions"><a class="btn primary" href="#courses">Explore free courses →</a><a class="btn secondary" href="#playground">Try the code playground</a></div>
+    <div class="tiny">✓ Beginner-friendly &nbsp; ✓ Learn by doing &nbsp; ✓ Free to start</div>
+  </div>
+  <div class="editor-card" aria-label="Example of code and website preview">
+    <div class="editor-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>your-first-page.html</span></div>
+    <div class="code"><span class="pink">&lt;h1&gt;</span>Hello, world!<span class="pink">&lt;/h1&gt;</span><br><span class="green">&lt;p&gt;</span>I'm learning to build websites.<span class="green">&lt;/p&gt;</span><br><span class="blue">&lt;button&gt;</span>Let's go!<span class="blue">&lt;/button&gt;</span><br><br><span class="yellow">// Small steps. Real skills.</span></div>
+    <div class="preview"><strong>Hello, world! 👋</strong><p>I'm learning to build websites.</p><span class="mini-btn">Let's go!</span></div>
+  </div>
+</section>
+<div class="wrap stats">
+  <div class="stat"><b>03</b><span>Core web languages</span></div>
+  <div class="stat"><b>Start → Build</b><span>A clear learning path</span></div>
+  <div class="stat"><b>100%</b><span>Free to get started</span></div>
+</div>
+<section class="wrap" id="courses">
+  <div class="section-head"><div><h2>Choose your starting point.</h2><p>Build strong foundations, then put your skills to work.</p></div></div>
+  <div class="courses">
+    <article class="course"><div class="course-icon html-icon">5</div><span class="tag">Course 01 · Structure</span><h3>HTML Foundations</h3><p>Learn how web pages are built with headings, paragraphs, links, images and forms.</p><button class="btn secondary" onclick="openLesson('html')">Start HTML →</button></article>
+    <article class="course"><div class="course-icon css-icon">✳</div><span class="tag">Course 02 · Design</span><h3>CSS Styling</h3><p>Make pages beautiful with colors, typography, layouts, responsive design and animations.</p><button class="btn secondary" onclick="openLesson('css')">Start CSS →</button></article>
+    <article class="course"><div class="course-icon js-icon">JS</div><span class="tag">Course 03 · Interaction</span><h3>JavaScript Basics</h3><p>Make websites respond to clicks, work with data, and create interactive features.</p><button class="btn secondary" onclick="openLesson('js')">Start JavaScript →</button></article>
+  </div>
+  <div id="lessonArea" class="lesson-grid hidden" style="margin-top:18px"></div>
+</section>
+<section class="wrap" id="roadmap">
+  <div class="section-head"><div><h2>Your roadmap to building websites.</h2><p>You don't have to know everything to begin. Just keep moving.</p></div></div>
+  <div class="path">
+    <div class="step"><small>LEVEL 01</small><h3>Beginner</h3><p>Learn HTML elements, CSS basics, JavaScript variables and how websites work.</p></div>
+    <div class="step"><small>LEVEL 02</small><h3>Builder</h3><p>Create responsive pages, navigation, forms, interactive components and small projects.</p></div>
+    <div class="step"><small>LEVEL 03</small><h3>Advanced</h3><p>Explore APIs, accessibility, performance, version control and publishing real projects.</p></div>
+  </div>
+</section>
+<section class="wrap" id="playground">
+  <div class="section-head"><div><h2>Make something right now.</h2><p>Edit the HTML and run it to see your own mini web page.</p></div></div>
+  <div class="playground">
+    <div class="playbox"><header>✍️ Your HTML code</header><textarea id="codeInput" spellcheck="false" aria-label="HTML code editor"><h1>Hello, Projectiv!</h1>
+<p>I just built my first web page.</p>
+<button onclick="document.getElementById('message').textContent='You did it! 🎉'">Click me</button>
+<p id="message"></p></textarea><div class="play-actions"><button class="btn primary" id="runCode">▶ Run code</button><button class="btn secondary" id="resetCode">Reset</button></div></div>
+    <div class="playbox"><header>🖥️ Live preview</header><iframe id="previewFrame" title="Your HTML preview" sandbox="allow-scripts"></iframe></div>
+  </div>
+  <p class="notice">Practice tip: change the heading text, then tap “Run code”. Your playground runs in a sandboxed preview.</p>
+</section>
+<section class="wrap" id="quiz">
+  <div class="section-head"><div><h2>Quick knowledge check.</h2><p>A tiny quiz to test what you've learned.</p></div></div>
+  <div class="quiz"><span class="tag">HTML · QUIZ 01</span><h3>Which language gives a webpage its basic structure?</h3><div class="quiz-options"><button data-answer="wrong">CSS</button><button data-answer="correct">HTML</button><button data-answer="wrong">JavaScript</button><button data-answer="wrong">Python</button></div><div id="quizFeedback" role="status" aria-live="polite"></div></div>
+</section>
+<section class="wrap"><div class="cta"><div><h2>Your first website starts here.</h2><p>Learn a little. Build a little. Repeat.</p></div><a class="btn secondary" style="background:#fff;color:#252044;border:0" href="#courses">Pick a course ↑</a></div></section>
+</main>
+<footer class="wrap footer"><a class="logo" href="#home"><span class="logo-mark">P</span> projectiv<span style="color:var(--brand2)">.</span></a><span>Made for curious minds. Keep building. ✨</span><span>© <span id="year"></span> Projectiv</span></footer>
+<script>
+const lessons={
+html:{title:'HTML Foundations',intro:'HTML tells the browser what each part of a page means.',items:[['1. Your first elements','Use headings, paragraphs and links.','<h1>My first website</h1>\\n<p>I am learning HTML.</p>\\n<a href=\"https://example.com\">A sample link</a>'],['2. Add an image','The img element displays an image. Always include useful alt text.','<img src=\"https://placehold.co/320x140\" alt=\"A sample placeholder image\">'],['3. Build a list','Lists organise related information.','<h2>What I am learning</h2>\\n<ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>']]},
+css:{title:'CSS Styling',intro:'CSS controls how your page looks and adapts to different screens.',items:[['1. Add color','Use CSS rules to change text and backgrounds.','<h1 style=\"color: rebeccapurple\">Hello, design!</h1>\\n<p style=\"background:#e6fffa;padding:12px\">Style makes pages clearer.</p>'],['2. Spacing and cards','Padding creates space inside an element; margin creates space outside.','<div style=\"padding:20px;margin:10px;border-radius:12px;background:#eee;color:#222\">A simple card</div>'],['3. Responsive thinking','Use flexible widths so content can fit different screens.','<div style=\"max-width:500px;width:100%;padding:16px;background:#dbeafe;color:#172554\">I fit small and large screens.</div>']]},
+js:{title:'JavaScript Basics',intro:'JavaScript makes a webpage interactive. Try these examples in the playground.',items:[['1. Respond to a click','A click handler can change what a visitor sees.','<button onclick=\"document.getElementById(\\'out\\').textContent=\\'Hello there!\\'\">Say hello</button>\\n<p id=\"out\"></p>'],['2. Work with values','Variables store information your program can use.','<p id=\"answer\"></p>\\n<script>const name = \"coder\"; document.getElementById(\"answer\").textContent = \"Hello, \" + name + \"!\";<\\/script>'],['3. Make a counter','Update a number when the button is pressed.','<button onclick=\"count++;document.getElementById(\\'n\\').textContent=count\">Add one</button>\\n<p id=\"n\">0</p>\\n<script>let count=0;<\\/script>']]}
+};
+function openLesson(key){const area=document.getElementById('lessonArea');const data=lessons[key];area.classList.remove('hidden');area.innerHTML='<div class=\"lesson\" style=\"grid-column:1/-1\"><span class=\"tag\">YOUR FIRST LESSONS</span><h3>'+data.title+'</h3><p>'+data.intro+'</p></div>'+data.items.map((item,i)=>'<article class=\"lesson\"><h3>'+item[0]+'</h3><p>'+item[1]+'</p><pre style=\"white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1020;color:#cfe2ff;padding:12px;border-radius:10px;font-size:12px\">'+escapeHtml(item[2])+'</pre><button class=\"btn secondary lessonTry\" data-index=\"'+i+'\" data-key=\"'+key+'\">Try in playground →</button></article>').join('');area.querySelectorAll('.lessonTry').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('codeInput').value=lessons[btn.dataset.key].items[Number(btn.dataset.index)][2].replace(/\\\\n/g,'\n');runCode();document.getElementById('playground').scrollIntoView({behavior:'smooth'});}));area.scrollIntoView({behavior:'smooth',block:'start'});}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+const starter=document.getElementById('codeInput').value;
+function runCode(){document.getElementById('previewFrame').srcdoc=document.getElementById('codeInput').value;}
+document.getElementById('runCode').addEventListener('click',runCode);
+document.getElementById('resetCode').addEventListener('click',()=>{document.getElementById('codeInput').value=starter;runCode();});
+document.querySelectorAll('.quiz-options button').forEach(b=>b.addEventListener('click',()=>{const f=document.getElementById('quizFeedback');if(b.dataset.answer==='correct'){f.textContent='Correct! 🎉 HTML provides the structure of a webpage.';}else{f.textContent='Not quite—try again! HTML gives the page its structure.';}}));
+document.getElementById('year').textContent=new Date().getFullYear();
+runCode();
+</script>
+</body>
+</html>
