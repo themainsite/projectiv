@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111f"><title>Projectiv — Learn by building</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  <nav id="nav"><a class="active" href="index.html">Dashboard</a><a href="courses.html">Courses</a><a href="practice.html">Code Lab</a><a href="quizzes.html">Quizzes</a><a href="about.html">About</a></nav>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+</header>
+<main class="wrap">
+  <section class="welcome">
+    <div><p class="eyebrow">YOUR LEARNING SPACE</p><h1>Build something<br><span>brilliant today.</span></h1><p class="muted">Small steps. Real skills. Projects that prove what you can do.</p><a class="btn" href="courses.html">Explore courses <b>→</b></a></div>
+    <div class="welcome-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="code-card"><span>01</span><code>&lt;build&gt;</code><code class="accent">your_future();</code><code>&lt;/build&gt;</code><small>IDEAS → SKILLS → PROJECTS</small></div></div>
+  </section>
+  <section class="section-head"><div><p class="eyebrow">OVERVIEW</p><h2>Your progress</h2></div><span class="pill">Saved on this device</span></section>
+  <section class="stats">
+    <article class="stat"><span class="stat-icon">◷</span><p>Lessons completed</p><strong id="lessonsDone">0</strong><small>Keep your momentum</small></article>
+    <article class="stat"><span class="stat-icon">▤</span><p>Courses started</p><strong id="coursesStarted">0</strong><small>Every start counts</small></article>
+    <article class="stat"><span class="stat-icon">⚡</span><p>Quiz points</p><strong id="quizPoints">0</strong><small>Your best scores add up</small></article>
+  </section>
+  <section class="dashboard-grid">
+    <article class="panel">
+      <div class="panel-title"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Learning path</h2></div><a href="courses.html">All courses →</a></div>
+      <div class="path-item"><div class="path-symbol html">5</div><div class="path-copy"><b>HTML foundations</b><small>Structure your first web page</small><div class="progress"><i id="htmlProgress"></i></div></div><a class="round-link" href="lessons.html">→</a></div>
+      <div class="path-item"><div class="path-symbol css">✦</div><div class="path-copy"><b>CSS styling</b><small>Make your pages look amazing</small><div class="progress"><i id="cssProgress"></i></div></div><a class="round-link" href="lessons.html#css">→</a></div>
+      <div class="path-item"><div class="path-symbol js">JS</div><div class="path-copy"><b>JavaScript basics</b><small>Bring your pages to life</small><div class="progress"><i id="jsProgress"></i></div></div><a class="round-link" href="lessons.html#js">→</a></div>
+    </article>
+    <article class="panel goal-panel"><p class="eyebrow">TODAY'S GOAL</p><h2>One lesson<br>at a time.</h2><p class="muted">Complete a lesson and watch your progress grow. Your progress stays on this device.</p><div class="goal-ring"><div><strong id="goalCount">0/3</strong><small>lessons</small></div></div><a class="btn btn-wide" href="lessons.html">Continue learning</a></article>
+  </section>
+  <section class="section-head"><div><p class="eyebrow">MAKE IT PRACTICAL</p><h2>Tools for your next idea</h2></div></section>
+  <section class="tool-grid">
+    <a class="tool-card" href="practice.html"><span>⌘</span><b>Code Lab</b><small>Write code and preview it instantly.</small><em>Open lab →</em></a>
+    <a class="tool-card" href="quizzes.html"><span>✓</span><b>Quick quizzes</b><small>Test what you know and earn points.</small><em>Take a quiz →</em></a>
+    <a class="tool-card" href="courses.html"><span>▦</span><b>Learning tracks</b><small>Follow a clear path from beginner up.</small><em>Browse tracks →</em></a>
+  </section>
+</main>
+<footer><a class="brand" href="index.html">Project<span>iv</span></a><span>Learn it. Build it. Make it yours.</span></footer>
+<script src="assets/script.js"></script>
+</body></html>
