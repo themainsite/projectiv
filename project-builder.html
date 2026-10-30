@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
+<title>Project Builder | Projectiv</title>
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+.builder-intro{padding:35px 0 20px}
+.builder-modes{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:25px 0}
+.mode-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;color:var(--text);text-align:left}
+.mode-card.active{border-color:var(--teal);background:var(--surface2)}
+.mode-card strong{display:block;font:600 19px 'Space Grotesk';margin-bottom:6px}
+.mode-card small{color:var(--muted)}
+.builder-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+.builder-panel h2{font:600 21px 'Space Grotesk';margin:0 0 10px}
+.builder-steps{display:grid;gap:10px;margin-top:15px}
+.builder-step{padding:13px;border:1px solid var(--line);border-radius:10px}
+.builder-step strong{display:block;margin-bottom:4px}
+.builder-step p{font-size:12px;color:var(--muted);margin:0}
+.builder-editors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:20px 0}
+.builder-editor{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.builder-editor.javascript-editor{grid-column:1/-1}
+.builder-editor textarea{height:230px;min-height:180px;resize:vertical}
+.builder-editor.javascript-editor textarea{height:150px}
+.builder-actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.builder-actions button{flex:1;min-width:130px}
+.builder-preview{background:white;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.builder-preview iframe{display:block;width:100%;height:520px;border:0;background:white}
+.builder-preview-head{padding:13px 16px;background:var(--surface);color:var(--muted);font-size:11px;display:flex;justify-content:space-between}
+.builder-tip{font-size:12px;color:var(--muted);margin:15px 0}
+.builder-hidden{display:none!important}
+@media(max-width:700px){
+.builder-modes,.builder-editors{grid-template-columns:1fr}
+.builder-editor.javascript-editor{grid-column:auto}
+.builder-editor textarea{height:190px}
+.builder-preview iframe{height:430px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+<a class="brand" href="index.html">Project<span>iv</span></a>
+<button class="menu-btn" id="menuBtn" type="button">☰</button>
+<nav id="nav">
+<a href="index.html">Dashboard</a>
+<a href="courses.html">Courses</a>
+<a href="practice.html">Code Lab</a>
+<a class="active" href="project-builder.html">Project Builder</a>
+<a href="quizzes.html">Quizzes</a>
+<a href="about.html">About</a>
+</nav>
+<button class="theme-btn" id="themeBtn" type="button">☼</button>
+</header>
+
+<main class="wrap page">
+
+<section class="builder-intro">
+<p class="eyebrow">YOUR CREATIVE WORKSPACE</p>
+<h1>Build your first <span>website.</span></h1>
+<p class="muted lead">
+Bring HTML, CSS and JavaScript together. Write code, run your website
+and see your creation come alive.
+</p>
+</section>
+
+<h2 style="font-family:'Space Grotesk'">Choose your workspace</h2>
+
+<div class="builder-modes">
+<button class="mode-card active" id="guidedMode" type="button">
+<strong>📘 Guided Project</strong>
+<small>Follow simple steps to create your first landing page.</small>
+</button>
+
+<button class="mode-card" id="blankMode" type="button">
+<strong>✏️ Blank Workspace</strong>
+<small>Start from scratch and build your own website.</small>
+</button>
+</div>
+
+<section class="builder-panel" id="guidedInstructions">
+<h2>Your first website project</h2>
+<p class="muted">
+You are going to create a homepage for a fictional technology company
+called BrightSpace.
+</p>
+
+<div class="builder-steps">
+<div class="builder-step">
+<strong>Step 1 — HTML</strong>
+<p>Create the navigation, welcome section, About section,
+features and footer.</p>
+</div>
+<div class="builder-step">
+<strong>Step 2 — CSS</strong>
+<p>Give your website colours, spacing, attractive buttons
+and a responsive layout.</p>
+</div>
+<div class="builder-step">
+<strong>Step 3 — JavaScript</strong>
+<p>Make the welcome button respond when a visitor clicks it.</p>
+</div>
+<div class="builder-step">
+<strong>Step 4 — Run your website</strong>
+<p>Press Run Website to see all three languages working together.</p>
+</div>
+</div>
+</section>
+
+<section class="builder-panel builder-hidden" id="blankInstructions">
+<h2>Your blank workspace</h2>
+<p class="muted">
+Start with an empty HTML document, write your own CSS and add
+JavaScript whenever you are ready. There are no design limits.
+</p>
+</section>
+
+<div class="section-head">
+<h2>Your code editors</h2>
+<span class="pill">HTML · CSS · JavaScript</span>
+</div>
+
+<div class="builder-editors">
+
+<div class="builder-editor">
+<div class="editor-head">
+<strong>HTML</strong>
+<span>Structure</span>
+</div>
+<textarea id="builderHTML" spellcheck="false"
+aria-label="HTML code editor"></textarea>
+</div>
+
+<div class="builder-editor">
+<div class="editor-head">
+<strong>CSS</strong>
+<span>Appearance</span>
+</div>
+<textarea id="builderCSS" spellcheck="false"
+aria-label="CSS code editor"></textarea>
+</div>
+
+<div class="builder-editor javascript-editor">
+<div class="editor-head">
+<strong>JavaScript</strong>
+<span>Interaction</span>
+</div>
+<textarea id="builderJS" spellcheck="false"
+aria-label="JavaScript code editor"></textarea>
+</div>
+
+</div>
+
+<div class="builder-actions">
+<button class="btn" id="runWebsite" type="button">▶ Run Website</button>
+<button class="small-btn" id="resetWebsite" type="button">Reset example</button>
+<button class="small-btn" id="clearWebsite" type="button">Clear all</button>
+</div>
+
+<p class="builder-tip">
+Tip: Change the text in HTML, experiment with CSS colours,
+or add a new JavaScript interaction. Then run your website again.
+</p>
+
+<div class="section-head">
+<h2>Website preview</h2>
+<span class="pill">LIVE RESULT</span>
+</div>
+
+<div class="builder-preview">
+<div class="builder-preview-head">
+<span>Your website appears below</span>
+<span>● PREVIEW</span>
+</div>
+<iframe id="builderPreview"
+title="Your website preview"
+sandbox="allow-scripts"></iframe>
+</div>
+
+<div class="builder-panel" style="margin-top:25px">
+<h2>What have you built?</h2>
+<p class="muted">
+You have combined three important web technologies:
+</p>
+<ul>
+<li><strong>HTML</strong> gives your website its structure.</li>
+<li><strong>CSS</strong> controls its appearance.</li>
+<li><strong>JavaScript</strong> adds behaviour and interaction.</li>
+</ul>
+<p class="muted">
+Keep experimenting. The best way to become a developer is to build things.
+</p>
+<a class="btn" href="quizzes.html">Test your knowledge →</a>
+</div>
+
+</main>
+
+<footer>
+<a class="brand" href="index.html">Project<span>iv</span></a>
+<span>Learn it. Build it. Make it yours.</span>
+</footer>
+
+<script src="assets/script.js"></script>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+
+const guidedHTML = `<header class="nav">
+  <strong>BrightSpace</strong>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <p>WELCOME TO BRIGHTSPACE</p>
+  <h1>Ideas become<br> amazing things.</h1>
+  <p>We help people turn creative ideas into useful digital experiences.</p>
+  <button id="welcomeButton">Explore BrightSpace</button>
+</section>
+
+<section class="about" id="about">
+  <h2>About Us</h2>
+  <p>BrightSpace is a fictional company created for your first website project.</p>
+</section>
+
+<section class="features" id="features">
+  <h2>What We Do</h2>
+  <div class="cards">
+    <article><h3>Learn</h3><p>Discover new skills and ideas.</p></article>
+    <article><h3>Create</h3><p>Turn your imagination into projects.</p></article>
+    <article><h3>Grow</h3><p>Keep improving every day.</p></article>
+  </div>
+</section>
+
+<footer>© 2026 BrightSpace. Built by a Projectiv learner.</footer>`;
+
+const guidedCSS = `* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #172033;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: #101d30;
+  color: white;
+}
+
+.nav nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  color: white;
+  background: linear-gradient(135deg,#123b65,#5b4bd8);
+}
+
+.hero h1 {
+  font-size: clamp(35px,6vw,65px);
+  margin: 12px 0;
+}
+
+.hero p {
+  line-height: 1.7;
+}
+
+button {
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 8px;
+  background: #42e0c0;
+  color: #06201d;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.about, .features {
+  padding: 55px 8%;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.cards article {
+  padding: 25px;
+  background: #eef3f8;
+  border-radius: 12px;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  background: #101d30;
+  color: white;
+}
+
+@media(max-width:600px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}`;
+
+const guidedJS = `const button = document.getElementById("welcomeButton");
+
+button.addEventListener("click", function() {
+  alert("Welcome to BrightSpace! You built this website.");
+});`;
+
+const blankHTML = `<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+</head>
+<body>
+
+  <h1>Welcome to my website!</h1>
+  <p>I built this page with Projectiv.</p>
+
+</body>
+</html>`;
+
+const blankCSS = `body {
+  font-family: Arial, sans-serif;
+  padding: 25px;
+  color: #172033;
+}`;
+
+const blankJS = `// Write your JavaScript here
+console.log("My website is working!");`;
+
+let currentMode = "guided";
+
+function loadMode(mode) {
+  currentMode = mode;
+
+  $("guidedMode").classList.toggle("active", mode === "guided");
+  $("blankMode").classList.toggle("active", mode === "blank");
+
+  $("guidedInstructions").classList.toggle("builder-hidden", mode !== "guided");
+  $("blankInstructions").classList.toggle("builder-hidden", mode !== "blank");
+
+  if (mode === "guided") {
+    $("builderHTML").value = guidedHTML;
+    $("builderCSS").value = guidedCSS;
+    $("builderJS").value = guidedJS;
+  } else {
+    $("builderHTML").value = blankHTML;
+    $("builderCSS").value = blankCSS;
+    $("builderJS").value = blankJS;
+  }
+
+  runWebsite();
+}
+
+function runWebsite() {
+  const html = $("builderHTML").value;
+  const css = $("builderCSS").value;
+  const js = $("builderJS").value;
+
+  const documentContent = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>${css}</style>
+</head>
+<body>
+${html}
+<script>
+try {
+${js}
+} catch(error) {
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    "<p style='color:red;padding:15px'>JavaScript error: " +
+    error.message + "</p>"
+  );
+}
+<\/script>
+</body>
+</html>`;
+
+  $("builderPreview").srcdoc = documentContent;
+}
+
+$("guidedMode").addEventListener("click", () => loadMode("guided"));
+$("blankMode").addEventListener("click", () => loadMode("blank"));
+$("runWebsite").addEventListener("click", runWebsite);
+
+$("resetWebsite").addEventListener("click", () => {
+  loadMode(currentMode);
+});
+
+$("clearWebsite").addEventListener("click", () => {
+  $("builderHTML").value = "";
+  $("builderCSS").value = "";
+  $("builderJS").value = "";
+  runWebsite();
+});
+
+loadMode("guided");
+})();
+</script>
+
+</body>
+</html>

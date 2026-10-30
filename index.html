@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>Projectiv — Learn, Practise, Build</title>
+  <meta name="description" content="Learn HTML, CSS, JavaScript and Java. Practise coding and build real projects with Projectiv.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      Project<span>iv</span>
+    </a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Open navigation menu"
+      type="button"
+    >☰</button>
+
+    <nav id="nav">
+      <a href="index.html">Dashboard</a>
+      <a href="courses.html">Courses</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="practice.html">Code Lab</a>
+      <a href="project-builder.html">Project Builder</a>
+      <a href="quizzes.html">Quiz Arena</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <button
+      class="theme-btn"
+      id="themeBtn"
+      type="button"
+      aria-label="Toggle colour theme"
+    >☼</button>
+  </header>
+
+
+  <!-- MAIN DASHBOARD -->
+  <main class="wrap page">
+
+    <!-- WELCOME -->
+    <section class="hero">
+      <div class="eyebrow">YOUR CODING JOURNEY STARTS HERE</div>
+
+      <h1>Welcome to <span>Projectiv</span></h1>
+
+      <p class="lead">
+        Learn programming, practise what you learn, test your knowledge
+        and turn your ideas into real projects.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="courses.html">Explore courses</a>
+        <a class="btn btn-wide" href="project-builder.html">
+          Start building
+        </a>
+      </div>
+    </section>
+
+
+    <!-- STATISTICS -->
+    <section class="stats">
+
+      <div class="stat">
+        <strong id="lessonsDone">0</strong>
+        <span>Lessons completed</span>
+      </div>
+
+      <div class="stat">
+        <strong id="coursesStarted">0</strong>
+        <span>Learning tracks started</span>
+      </div>
+
+      <div class="stat">
+        <strong id="quizPoints">0</strong>
+        <span>Quiz points</span>
+      </div>
+
+      <div class="stat">
+        <strong id="goalCount">0/3</strong>
+        <span>Daily goal</span>
+      </div>
+
+    </section>
+
+
+    <!-- QUICK ACCESS -->
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">QUICK ACCESS</div>
+          <h2>Your learning tools</h2>
+        </div>
+      </div>
+
+      <div class="tool-grid">
+
+        <a class="tool-card" href="practice.html">
+          <div class="tool-icon">⌨️</div>
+          <h3>Code Lab</h3>
+          <p>
+            Practise HTML and CSS, write code and see your results
+            in a live preview.
+          </p>
+          <span class="card-link">Open Code Lab →</span>
+        </a>
+
+        <a class="tool-card" href="project-builder.html">
+          <div class="tool-icon">🛠️</div>
+          <h3>Project Builder</h3>
+          <p>
+            Create websites using HTML, CSS and JavaScript.
+            Choose a guided project or start with a blank workspace.
+          </p>
+          <span class="card-link">Build a project →</span>
+        </a>
+
+        <a class="tool-card" href="quizzes.html">
+          <div class="tool-icon">🧠</div>
+          <h3>Quiz Arena</h3>
+          <p>
+            Test yourself with 101 coding questions across
+            different topics and difficulty levels.
+          </p>
+          <span class="card-link">Take a quiz →</span>
+        </a>
+
+        <a class="tool-card" href="lessons.html">
+          <div class="tool-icon">📚</div>
+          <h3>Lessons</h3>
+          <p>
+            Follow structured lessons and mark each lesson
+            as completed as you learn.
+          </p>
+          <span class="card-link">Continue learning →</span>
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- LEARNING TRACKS -->
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">LEARNING PATHS</div>
+          <h2>Choose what to learn</h2>
+          <p class="muted">
+            Build your programming knowledge one step at a time.
+          </p>
+        </div>
+
+        <a href="courses.html" class="text-link">View all courses →</a>
+      </div>
+
+
+      <div class="course-grid">
+
+        <!-- HTML -->
+        <article class="course-card" data-search="html web structure beginner">
+          <div class="course-top html-bg">
+            <span>HTML</span>
+          </div>
+
+          <div class="course-body">
+            <span class="tag">Beginner</span>
+            <h3>HTML Fundamentals</h3>
+            <p>
+              Learn how to structure web pages using headings,
+              paragraphs, links, images and other elements.
+            </p>
+
+            <div class="course-meta">
+              <span>2 lessons</span>
+              <span>Web development</span>
+            </div>
+
+            <div class="progress-track">
+              <div class="progress-fill" id="htmlProgress"></div>
+            </div>
+
+            <a class="btn btn-wide" href="lessons.html">
+              Start HTML
+            </a>
+          </div>
+        </article>
+
+
+        <!-- CSS -->
+        <article class="course-card" data-search="css styling design beginner">
+          <div class="course-top css-bg">
+            <span>CSS</span>
+          </div>
+
+          <div class="course-body">
+            <span class="tag">Beginner</span>
+            <h3>CSS Fundamentals</h3>
+            <p>
+              Learn how to style websites with colours, fonts,
+              spacing, borders and layouts.
+            </p>
+
+            <div class="course-meta">
+              <span>2 lessons</span>
+              <span>Web design</span>
+            </div>
+
+            <div class="progress-track">
+              <div class="progress-fill" id="cssProgress"></div>
+            </div>
+
+            <a class="btn btn-wide" href="lessons.html">
+              Start CSS
+            </a>
+          </div>
+        </article>
+
+
+        <!-- JAVASCRIPT -->
+        <article class="course-card" data-search="javascript programming interactive beginner">
+          <div class="course-top js-bg">
+            <span>JAVASCRIPT</span>
+          </div>
+
+          <div class="course-body">
+            <span class="tag">Beginner</span>
+            <h3>JavaScript Fundamentals</h3>
+            <p>
+              Discover variables, functions, conditions and
+              how to make websites interactive.
+            </p>
+
+            <div class="course-meta">
+              <span>2 lessons</span>
+              <span>Programming</span>
+            </div>
+
+            <div class="progress-track">
+              <div class="progress-fill" id="jsProgress"></div>
+            </div>
+
+            <a class="btn btn-wide" href="lessons.html">
+              Start JavaScript
+            </a>
+          </div>
+        </article>
+
+
+        <!-- JAVA -->
+        <article class="course-card" data-search="java programming object oriented beginner">
+          <div class="course-top java-bg">
+            <span>JAVA</span>
+          </div>
+
+          <div class="course-body">
+            <span class="tag">Beginner</span>
+            <h3>Java Programming</h3>
+            <p>
+              Learn Java from the basics, including variables,
+              conditions, loops, methods, arrays and OOP.
+            </p>
+
+            <div class="course-meta">
+              <span>8 lessons</span>
+              <span>Programming</span>
+            </div>
+
+            <a class="btn btn-wide" href="java.html">
+              Start Java
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- DAILY GOAL -->
+    <section class="section">
+
+      <div class="panel">
+        <div class="eyebrow">YOUR DAILY GOAL</div>
+
+        <h2>Make progress every day</h2>
+
+        <p class="muted">
+          Complete three lessons to reach your daily learning goal.
+          Keep practising and build your skills consistently.
+        </p>
+
+        <div class="goal-actions">
+          <a class="btn" href="lessons.html">Continue lessons</a>
+          <a class="btn btn-wide" href="quizzes.html">Practise with quizzes</a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- PROJECT INVITATION -->
+    <section class="section">
+
+      <div class="panel">
+        <div class="eyebrow">LEARN BY BUILDING</div>
+
+        <h2>Turn your ideas into websites</h2>
+
+        <p class="muted">
+          Reading about programming is only the beginning.
+          Use the Project Builder to write HTML, CSS and JavaScript
+          and preview your work instantly.
+        </p>
+
+        <a class="btn" href="project-builder.html">
+          Open Project Builder →
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a class="brand" href="index.html">
+      Project<span>iv</span>
+    </a>
+
+    <p>Learn it. Practise it. Build it.</p>
+
+    <div class="footer-links">
+      <a href="courses.html">Courses</a>
+      <a href="quizzes.html">Quizzes</a>
+      <a href="project-builder.html">Project Builder</a>
+      <a href="about.html">About</a>
+    </div>
+
+    <p class="muted">© 2026 Projectiv. Keep learning and keep building.</p>
+  </footer>
+
+
+  <!-- MAIN SITE SCRIPT -->
+  <script src="assets/script.js"></script>
+
+</body>
+		</html>

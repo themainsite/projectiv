@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111f">
+<title>Lessons — Projectiv</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+  <nav id="nav">
+    <a href="index.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a href="practice.html">Code Lab</a>
+    <a href="project-builder.html">Project Builder</a>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+</header>
+
+<main class="wrap page">
+
+  <p class="eyebrow">THE LEARNING LIBRARY</p>
+
+  <h1>Learn by doing<span>.</span></h1>
+
+  <p class="muted lead">
+    Read a short lesson, try the example, then mark it complete.
+    Your progress is saved in this browser.
+  </p>
+
+  <!-- HTML -->
+  <div class="lesson-group" id="html">
+
+    <div class="lesson-heading">
+      <span class="path-symbol html">5</span>
+      <div>
+        <h2>HTML Foundations</h2>
+        <p class="muted">Give your web pages structure.</p>
+      </div>
+    </div>
+
+    <div class="lesson-list">
+
+      <article class="lesson" data-lesson="html1">
+        <div>
+          <span class="tag">LESSON 01</span>
+          <h3>Your first HTML page</h3>
+          <p>HTML uses elements to tell a browser what each part of a page means.</p>
+          <pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;p&gt;I am learning to code.&lt;/p&gt;</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+      <article class="lesson" data-lesson="html2">
+        <div>
+          <span class="tag">LESSON 02</span>
+          <h3>Headings and paragraphs</h3>
+          <p>Use headings to organise ideas and paragraphs for normal text.</p>
+          <pre><code>&lt;h1&gt;My website&lt;/h1&gt;
+&lt;h2&gt;About me&lt;/h2&gt;
+&lt;p&gt;Welcome to my page.&lt;/p&gt;</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- CSS -->
+  <div class="lesson-group" id="css">
+
+    <div class="lesson-heading">
+      <span class="path-symbol css">✦</span>
+      <div>
+        <h2>CSS Styling</h2>
+        <p class="muted">Control how your website looks.</p>
+      </div>
+    </div>
+
+    <div class="lesson-list">
+
+      <article class="lesson" data-lesson="css1">
+        <div>
+          <span class="tag">LESSON 01</span>
+          <h3>Change colours</h3>
+          <p>CSS rules select an element and give it styles.</p>
+          <pre><code>h1 {
+  color: teal;
+  background: #eefafa;
+}</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+      <article class="lesson" data-lesson="css2">
+        <div>
+          <span class="tag">LESSON 02</span>
+          <h3>Add spacing</h3>
+          <p>Padding adds space inside an element; margin adds space outside it.</p>
+          <pre><code>.card {
+  padding: 20px;
+  margin: 12px;
+}</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <div class="lesson-group" id="js">
+
+    <div class="lesson-heading">
+      <span class="path-symbol js">JS</span>
+      <div>
+        <h2>JavaScript Basics</h2>
+        <p class="muted">Make your website respond.</p>
+      </div>
+    </div>
+
+    <div class="lesson-list">
+
+      <article class="lesson" data-lesson="js1">
+        <div>
+          <span class="tag">LESSON 01</span>
+          <h3>Use a variable</h3>
+          <p>Variables store information you can use later.</p>
+          <pre><code>const learner = "You";
+console.log("Welcome, " + learner);</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+      <article class="lesson" data-lesson="js2">
+        <div>
+          <span class="tag">LESSON 02</span>
+          <h3>Make a function</h3>
+          <p>A function is a reusable set of instructions.</p>
+          <pre><code>function sayHello() {
+  alert("Hello!");
+}</code></pre>
+        </div>
+        <button class="complete-btn">Mark complete</button>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- MORE PRACTICE -->
+  <section class="panel" style="margin-top:30px;">
+    <p class="eyebrow">TAKE THE NEXT STEP</p>
+    <h2>Ready to practise?</h2>
+    <p class="muted">
+      Build a website, test your coding knowledge or explore Java programming.
+    </p>
+
+    <div class="tool-grid">
+      <a class="tool-card" href="project-builder.html">
+        <span>⚒</span>
+        <b>Project Builder</b>
+        <small>Create a website with HTML, CSS and JavaScript.</small>
+        <em>Start building →</em>
+      </a>
+
+      <a class="tool-card" href="quizzes.html">
+        <span>✓</span>
+        <b>Quiz Arena</b>
+        <small>Test yourself with coding questions.</small>
+        <em>Take a quiz →</em>
+      </a>
+
+      <a class="tool-card" href="java.html">
+        <span>☕</span>
+        <b>Java Programming</b>
+        <small>Explore Java lessons and exercises.</small>
+        <em>Learn Java →</em>
+      </a>
+    </div>
+  </section>
+
+  <p class="muted note">
+    Want to experiment with HTML and CSS?
+    Open the <a href="practice.html">Code Lab</a>.
+  </p>
+
+</main>
+
+<footer>
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <span>Learn it. Build it. Make it yours.</span>
+</footer>
+
+<script src="assets/script.js"></script>
+
+</body>
+</html>

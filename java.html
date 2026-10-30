@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Learn Java | Projectiv</title>
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    .java-page {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 18px;
+    }
+
+    .java-hero {
+      background: linear-gradient(135deg, #172554, #1d4ed8, #7c3aed);
+      color: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+    }
+
+    .java-hero h1 {
+      font-size: clamp(30px, 6vw, 44px);
+      margin: 10px 0;
+    }
+
+    .java-hero p {
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+
+    .java-card {
+      background: var(--surface, #fff);
+      color: var(--text, #182033);
+      border: 1px solid var(--line, #e5e7eb);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .java-card h2 { margin-top: 0; }
+    .java-card h3 { margin-top: 24px; }
+    .java-card p, .java-card li { line-height: 1.8; }
+
+    .java-code {
+      display: block;
+      background: #0f172a;
+      color: #dbeafe;
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre;
+    }
+
+    .java-tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .java-exercise {
+      background: var(--surface2, #f1f5f9);
+      color: var(--text, #1e293b);
+      border-radius: 12px;
+      padding: 17px;
+      margin-top: 15px;
+    }
+
+    .java-exercise button {
+      border: 0;
+      background: #4f46e5;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 9px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .java-answer {
+      display: none;
+      margin-top: 12px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .java-progress {
+      width: 100%;
+      height: 9px;
+      background: var(--surface2, #e2e8f0);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+
+    .java-progress-fill {
+      height: 100%;
+      width: 0;
+      background: #2563eb;
+      transition: width .3s;
+    }
+
+    .java-lesson {
+      border: 1px solid var(--line, #e5e7eb);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 12px 0;
+    }
+
+    .java-lesson label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .java-lesson input {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .java-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .java-reset {
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      color: var(--text);
+      padding: 10px 15px;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    @media(max-width: 550px) {
+      .java-page { padding: 12px; }
+      .java-card { padding: 17px; }
+      .java-hero { padding: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+
+  <button class="menu-btn" id="menuBtn" type="button"
+    aria-label="Open menu">☰</button>
+
+  <nav id="nav">
+    <a href="index.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a href="lessons.html">Lessons</a>
+    <a href="practice.html">Code Lab</a>
+    <a href="project-builder.html">Project Builder</a>
+    <a href="quizzes.html">Quiz Arena</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <button class="theme-btn" id="themeBtn" type="button"
+    aria-label="Toggle theme">☼</button>
+</header>
+
+<main class="java-page">
+
+  <section class="java-hero">
+    <span>PROJECTIV LEARNING TRACK</span>
+    <h1>☕ Learn Java</h1>
+    <p>
+      Start from the fundamentals and gradually learn how to
+      write Java programs, solve problems and understand
+      object-oriented programming.
+    </p>
+    <span class="java-tag">BEGINNER FRIENDLY</span>
+  </section>
+
+  <section class="java-card">
+    <h2>Your learning progress</h2>
+    <strong id="progressText">0 of 8 lessons completed</strong>
+
+    <div class="java-progress">
+      <div class="java-progress-fill" id="progressFill"></div>
+    </div>
+
+    <button class="java-reset" id="resetProgress" type="button">
+      Reset progress
+    </button>
+  </section>
+
+  <section class="java-card">
+    <h2>What is Java?</h2>
+    <p>
+      Java is a popular programming language used to build
+      applications, enterprise software, backend systems and
+      many other kinds of programs.
+    </p>
+    <p>
+      Java is known for its object-oriented approach and its
+      ability to run on different platforms using the Java
+      Virtual Machine (JVM).
+    </p>
+  </section>
+
+  <section class="java-card">
+    <h2>Before you begin</h2>
+    <p>
+      To run Java programs on a computer, you generally need
+      the Java Development Kit (JDK). You can also practise
+      using an online Java compiler.
+    </p>
+    <p>
+      You do not need to install anything just to read these
+      lessons and study the examples.
+    </p>
+  </section>
+
+  <section class="java-card">
+    <h2>Java learning roadmap</h2>
+    <p>Complete the eight lessons below in order.</p>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="1">
+        <span><strong>Lesson 1:</strong> Introduction to Java</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="2">
+        <span><strong>Lesson 2:</strong> Variables and data types</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="3">
+        <span><strong>Lesson 3:</strong> Operators</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="4">
+        <span><strong>Lesson 4:</strong> Conditions and decisions</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="5">
+        <span><strong>Lesson 5:</strong> Loops</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="6">
+        <span><strong>Lesson 6:</strong> Methods</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="7">
+        <span><strong>Lesson 7:</strong> Arrays</span>
+      </label>
+    </div>
+
+    <div class="java-lesson">
+      <label><input type="checkbox" data-lesson="8">
+        <span><strong>Lesson 8:</strong> Classes and objects</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 1 — Introduction to Java</h2>
+    <p>
+      Java programs are commonly written inside classes.
+      A basic Java program has a main method where execution begins.
+    </p>
+
+    <pre class="java-code">public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, Projectiv!");
+    }
+}</pre>
+
+    <h3>Understanding the example</h3>
+    <ul>
+      <li><strong>class Main:</strong> Defines a class called Main.</li>
+      <li><strong>main:</strong> The program's entry-point method.</li>
+      <li><strong>System.out.println:</strong> Displays text.</li>
+      <li><strong>Semicolon:</strong> Ends the statement.</li>
+    </ul>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Which Java statement displays text on the screen?</p>
+      <button type="button" onclick="showAnswer('answer1', this)">Reveal answer</button>
+      <div class="java-answer" id="answer1">
+        System.out.println("Your message");
+      </div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 2 — Variables and data types</h2>
+    <p>
+      A variable stores information that a program can use.
+      Java requires you to specify the type of data a variable will hold.
+    </p>
+
+    <pre class="java-code">int age = 18;
+double price = 25.50;
+String name = "Alex";
+boolean isLearning = true;
+char grade = 'A';</pre>
+
+    <ul>
+      <li><strong>int:</strong> Whole numbers.</li>
+      <li><strong>double:</strong> Decimal numbers.</li>
+      <li><strong>String:</strong> Text. String is a class, not a primitive type.</li>
+      <li><strong>boolean:</strong> true or false.</li>
+      <li><strong>char:</strong> A single character.</li>
+    </ul>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Which data type is suitable for storing a person's name?</p>
+      <button type="button" onclick="showAnswer('answer2', this)">Reveal answer</button>
+      <div class="java-answer" id="answer2">String</div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 3 — Operators</h2>
+    <p>Operators perform calculations and comparisons.</p>
+
+    <pre class="java-code">int a = 10;
+int b = 5;
+
+int sum = a + b;
+int difference = a - b;
+int product = a * b;
+int quotient = a / b;</pre>
+
+    <p>Common operators include:</p>
+    <ul>
+      <li><strong>+</strong> Addition</li>
+      <li><strong>-</strong> Subtraction</li>
+      <li><strong>*</strong> Multiplication</li>
+      <li><strong>/</strong> Division</li>
+      <li><strong>%</strong> Remainder</li>
+    </ul>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>What is the result of 10 % 3?</p>
+      <button type="button" onclick="showAnswer('answer3', this)">Reveal answer</button>
+      <div class="java-answer" id="answer3">
+        1 — the remainder after division.
+      </div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 4 — Conditions and decisions</h2>
+    <p>
+      Conditions allow a program to make decisions.
+      The if and else statements are commonly used.
+    </p>
+
+    <pre class="java-code">int age = 18;
+
+if (age >= 18) {
+    System.out.println("Adult");
+} else {
+    System.out.println("Minor");
+}</pre>
+
+    <p>The program checks whether the age is at least 18.</p>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Which keyword provides an alternative when an if condition is false?</p>
+      <button type="button" onclick="showAnswer('answer4', this)">Reveal answer</button>
+      <div class="java-answer" id="answer4">else</div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 5 — Loops</h2>
+    <p>
+      Loops repeat instructions. A for loop is useful when
+      you know how many times you want to repeat an action.
+    </p>
+
+    <pre class="java-code">for (int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}</pre>
+
+    <p>This example prints the numbers 1 through 5.</p>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Which loop is often used when the number of repetitions is known?</p>
+      <button type="button" onclick="showAnswer('answer5', this)">Reveal answer</button>
+      <div class="java-answer" id="answer5">A for loop.</div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 6 — Methods</h2>
+    <p>A method is a reusable block of code that performs a task.</p>
+
+    <pre class="java-code">public class Main {
+
+    public static void greet() {
+        System.out.println("Welcome to Java!");
+    }
+
+    public static void main(String[] args) {
+        greet();
+    }
+}</pre>
+
+    <p>The greet method is called from the main method.</p>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Why do programmers use methods?</p>
+      <button type="button" onclick="showAnswer('answer6', this)">Reveal answer</button>
+      <div class="java-answer" id="answer6">
+        To organise code and reuse instructions.
+      </div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 7 — Arrays</h2>
+    <p>
+      An array stores multiple values of the same type in one variable.
+    </p>
+
+    <pre class="java-code">String[] fruits = {
+    "Apple",
+    "Mango",
+    "Orange"
+};
+
+System.out.println(fruits[0]);</pre>
+
+    <p>
+      Array positions start at index 0. Therefore, fruits[0]
+      refers to Apple.
+    </p>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>What is the first index in a Java array?</p>
+      <button type="button" onclick="showAnswer('answer7', this)">Reveal answer</button>
+      <div class="java-answer" id="answer7">0</div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>Lesson 8 — Classes and objects</h2>
+    <p>
+      A class is a blueprint for creating objects.
+      An object is an instance of a class.
+    </p>
+
+    <pre class="java-code">class Student {
+    String name = "Alex";
+
+    void introduce() {
+        System.out.println("Hello, " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.introduce();
+    }
+}</pre>
+
+    <div class="java-exercise">
+      <strong>Quick exercise</strong>
+      <p>Which keyword is used to create an object in Java?</p>
+      <button type="button" onclick="showAnswer('answer8', this)">Reveal answer</button>
+      <div class="java-answer" id="answer8">new</div>
+    </div>
+  </section>
+
+  <section class="java-card">
+    <h2>You've reached the end!</h2>
+    <p>
+      You have completed the introductory Java learning track.
+      Keep practising, writing code and testing your knowledge.
+    </p>
+
+    <div class="java-actions">
+      <a class="btn" href="quizzes.html">Go to Quiz Arena →</a>
+      <a class="btn btn-wide" href="project-builder.html">Open Project Builder</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <p>Learn it. Practise it. Build it.</p>
+  <p class="muted">© 2026 Projectiv.</p>
+</footer>
+
+<script src="assets/script.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const checkboxes = document.querySelectorAll("[data-lesson]");
+  const progressKey = "projectiv_java_lessons";
+
+  window.showAnswer = function(id, button) {
+    const answer = document.getElementById(id);
+    const isVisible = answer.style.display === "block";
+
+    answer.style.display = isVisible ? "none" : "block";
+    button.textContent = isVisible ? "Reveal answer" : "Hide answer";
+    button.setAttribute("aria-expanded", String(!isVisible));
+  };
+
+  function loadProgress() {
+    let saved = [];
+
+    try {
+      saved = JSON.parse(localStorage.getItem(progressKey)) || [];
+    } catch {}
+
+    checkboxes.forEach(box => {
+      box.checked = saved.includes(box.dataset.lesson);
+    });
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const completed = [...checkboxes].filter(box => box.checked).length;
+
+    document.getElementById("progressText").textContent =
+      `${completed} of 8 lessons completed`;
+
+    document.getElementById("progressFill").style.width =
+      `${completed / 8 * 100}%`;
+
+    const saved = [...checkboxes]
+      .filter(box => box.checked)
+      .map(box => box.dataset.lesson);
+
+    try {
+      localStorage.setItem(progressKey, JSON.stringify(saved));
+    } catch {}
+  }
+
+  checkboxes.forEach(box => {
+    box.addEventListener("change", updateProgress);
+  });
+
+  document.getElementById("resetProgress").addEventListener("click", () => {
+    if (confirm("Reset all Java lesson progress?")) {
+      checkboxes.forEach(box => box.checked = false);
+      updateProgress();
+    }
+  });
+
+  loadProgress();
+})();
+</script>
+
+</body>
+</html>

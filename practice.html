@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111f">
+<title>Code Lab — Projectiv</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+  <nav id="nav">
+    <a href="index.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a class="active" href="practice.html">Code Lab</a>
+    <a href="project-builder.html">Project Builder</a>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+</header>
+
+<main class="wrap page">
+
+  <p class="eyebrow">EXPERIMENT SPACE</p>
+
+  <h1>Welcome to the <span>Code Lab.</span></h1>
+
+  <p class="muted lead">
+    Edit the HTML and CSS, then press Run to see your changes.
+    Nothing is sent to a server.
+  </p>
+
+  <div class="lab">
+
+    <div class="editor">
+
+      <div class="editor-head">
+        <span>HTML</span>
+        <button id="resetCode" class="small-btn">Reset example</button>
+      </div>
+
+      <textarea id="htmlCode" spellcheck="false" aria-label="HTML editor">&lt;h1&gt;Hello, Projectiv!&lt;/h1&gt;
+&lt;p&gt;I am building my first page.&lt;/p&gt;
+&lt;button&gt;Click me&lt;/button&gt;</textarea>
+
+      <div class="editor-head">
+        <span>CSS</span>
+      </div>
+
+      <textarea id="cssCode" spellcheck="false" aria-label="CSS editor">body {
+  font-family: Arial, sans-serif;
+  padding: 24px;
+  color: #172033;
+}
+h1 { color: #0d9488; }
+button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #0d9488;
+  color: white;
+}</textarea>
+
+      <button id="runCode" class="btn btn-wide">▶ Run code</button>
+
+    </div>
+
+    <div class="preview">
+      <div class="preview-head">
+        <span>LIVE PREVIEW</span>
+        <span class="live-dot">● LIVE</span>
+      </div>
+
+      <iframe
+        id="previewFrame"
+        title="Code preview"
+        sandbox="allow-scripts">
+      </iframe>
+    </div>
+
+  </div>
+
+  <p class="note muted">
+    Tip: Try changing the heading text or the <code>color</code> value,
+    then run your code again.
+  </p>
+
+  <section class="panel" style="margin-top:28px;">
+    <p class="eyebrow">READY FOR MORE?</p>
+    <h2>Build a complete website.</h2>
+    <p class="muted">
+      Move beyond simple experiments. Use the Project Builder
+      to work with HTML, CSS and JavaScript together.
+    </p>
+    <a class="btn" href="project-builder.html">Open Project Builder →</a>
+  </section>
+
+</main>
+
+<footer>
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <span>Learn it. Build it. Make it yours.</span>
+</footer>
+
+<script src="assets/script.js"></script>
+
+</body>
+</html>

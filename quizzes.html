@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz Arena — Projectiv</title>
+  <link rel="stylesheet" href="assets/style.css">
+
+  <style>
+    .quiz-page { max-width: 900px; margin: 0 auto; }
+    .quiz-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 22px 0;
+    }
+    .quiz-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .quiz-controls label { display: block; font-weight: 700; margin-bottom: 8px; }
+    .quiz-controls select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface2);
+      color: var(--text);
+      font: inherit;
+    }
+    .quiz-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .quiz-stat {
+      background: var(--surface2);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .quiz-stat strong { display: block; font-size: 1.5rem; }
+    .quiz-stat span { color: var(--muted); font-size: .85rem; }
+    .quiz-progress {
+      height: 9px;
+      background: var(--surface2);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+    }
+    .quiz-progress > div {
+      height: 100%;
+      width: 0;
+      background: var(--teal);
+      transition: width .25s ease;
+    }
+    .quiz-question { font-size: 1.35rem; line-height: 1.5; margin: 12px 0 22px; }
+    .quiz-answer-list { display: grid; gap: 11px; }
+    .quiz-answer {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+    .quiz-answer:hover:not(:disabled) { border-color: var(--teal); }
+    .quiz-answer:disabled { cursor: default; opacity: 1; }
+    .quiz-answer.correct { border-color: #16a34a; background: rgba(22,163,74,.13); }
+    .quiz-answer.wrong { border-color: #dc2626; background: rgba(220,38,38,.12); }
+    .quiz-feedback {
+      padding: 15px;
+      margin-top: 18px;
+      border-radius: 12px;
+      background: var(--surface2);
+      line-height: 1.6;
+    }
+    .quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .quiz-actions button { cursor: pointer; }
+    .quiz-hidden { display: none !important; }
+    .quiz-result-score { font-size: 3rem; font-weight: 800; margin: 10px 0; }
+    .quiz-note { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    @media(max-width:650px) {
+      .quiz-controls { grid-template-columns: 1fr; }
+      .quiz-stats { grid-template-columns: 1fr; }
+      .quiz-panel { padding: 17px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+  <nav id="nav">
+    <a href="index.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a href="lessons.html">Lessons</a>
+    <a href="practice.html">Code Lab</a>
+    <a href="project-builder.html">Project Builder</a>
+    <a href="quizzes.html">Quiz Arena</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle theme">☼</button>
+</header>
+
+<main class="wrap page quiz-page">
+
+  <section class="page-intro">
+    <div class="eyebrow">TEST YOUR KNOWLEDGE</div>
+    <h1>Quiz <span>Arena</span></h1>
+    <p class="lead">
+      Challenge yourself with coding questions, improve your knowledge
+      and track your progress.
+    </p>
+  </section>
+
+  <section class="quiz-panel" id="setupPanel">
+    <h2>Set up your challenge</h2>
+    <p class="muted">Choose your topic, difficulty and number of questions.</p>
+
+    <div class="quiz-controls">
+      <div>
+        <label for="topicSelect">Topic</label>
+        <select id="topicSelect">
+          <option value="All">All topics</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Java">Java</option>
+          <option value="General">General Programming</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="difficultySelect">Difficulty</label>
+        <select id="difficultySelect">
+          <option value="All">All levels</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="countSelect">Questions</label>
+        <select id="countSelect">
+          <option value="10">10 questions</option>
+          <option value="20">20 questions</option>
+          <option value="30">30 questions</option>
+          <option value="50">50 questions</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="quiz-stats">
+      <div class="quiz-stat">
+        <strong id="bankCount">0</strong>
+        <span>Available questions</span>
+      </div>
+      <div class="quiz-stat">
+        <strong id="bestScore">0%</strong>
+        <span>Best score</span>
+      </div>
+      <div class="quiz-stat">
+        <strong id="roundCount">0</strong>
+        <span>Rounds completed</span>
+      </div>
+    </div>
+
+    <p class="quiz-note" id="poolMessage"></p>
+
+    <button class="btn" id="startQuiz" type="button">Start challenge →</button>
+  </section>
+
+  <section class="quiz-panel quiz-hidden" id="quizPanel">
+    <div class="eyebrow" id="questionCount">QUESTION 1</div>
+    <div class="quiz-progress"><div id="quizBar"></div></div>
+
+    <div class="muted" id="questionCategory"></div>
+    <h2 class="quiz-question" id="questionText"></h2>
+
+    <div class="quiz-answer-list" id="answers"></div>
+
+    <div class="quiz-feedback quiz-hidden" id="feedback" aria-live="polite"></div>
+
+    <div class="quiz-actions">
+      <button class="btn" id="nextQuestion" type="button" disabled>
+        Next question →
+      </button>
+      <button class="btn btn-wide" id="quitQuiz" type="button">
+        End round
+      </button>
+    </div>
+  </section>
+
+  <section class="quiz-panel quiz-hidden" id="resultPanel">
+    <div class="eyebrow">CHALLENGE COMPLETED</div>
+    <h2 id="resultHeading">Well done!</h2>
+    <div class="quiz-result-score" id="finalScore">0%</div>
+    <p id="resultMessage"></p>
+
+    <div class="quiz-stats">
+      <div class="quiz-stat">
+        <strong id="correctCount">0</strong>
+        <span>Correct answers</span>
+      </div>
+      <div class="quiz-stat">
+        <strong id="wrongCount">0</strong>
+        <span>Incorrect answers</span>
+      </div>
+      <div class="quiz-stat">
+        <strong id="totalCount">0</strong>
+        <span>Total questions</span>
+      </div>
+    </div>
+
+    <div class="quiz-actions">
+      <button class="btn" id="playAgain" type="button">Play again →</button>
+      <a class="btn btn-wide" href="courses.html">Explore courses</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <a class="brand" href="index.html">Project<span>iv</span></a>
+  <p>Learn it. Practise it. Build it.</p>
+  <p class="muted">© 2026 Projectiv.</p>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/questions.js"></script>
+<script src="assets/questions-extra.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+  const allQuestions = window.PROJECTIV_QUESTIONS || [];
+
+  const usedKey = (topic, difficulty) =>
+    `projectiv_used_${topic}_${difficulty}`;
+
+  let roundQuestions = [];
+  let currentIndex = 0;
+  let correct = 0;
+  let wrong = 0;
+  let selectedAnswer = false;
+
+  let roundTopic = "All";
+  let roundDifficulty = "All";
+
+  function readUsed(topic, difficulty) {
+    try {
+      return JSON.parse(localStorage.getItem(usedKey(topic, difficulty))) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveUsed(topic, difficulty, ids) {
+    localStorage.setItem(usedKey(topic, difficulty), JSON.stringify(ids));
+  }
+
+  function shuffle(items) {
+    const result = [...items];
+
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+  }
+
+  function getFilteredPool() {
+    const topic = $("topicSelect").value;
+    const difficulty = $("difficultySelect").value;
+
+    return allQuestions.filter(q =>
+      (topic === "All" || q.topic === topic) &&
+      (difficulty === "All" || q.difficulty === difficulty)
+    );
+  }
+
+  function getSelectionKey() {
+    return {
+      topic: $("topicSelect").value,
+      difficulty: $("difficultySelect").value
+    };
+  }
+
+  function updateSetup() {
+    const pool = getFilteredPool();
+    const { topic, difficulty } = getSelectionKey();
+
+    const used = readUsed(topic, difficulty);
+    const unused = pool.filter(q => !used.includes(q.id));
+
+    $("bankCount").textContent = pool.length;
+    $("bestScore").textContent =
+      localStorage.getItem("projectiv_best") || "0";
+    $("bestScore").textContent +=
+      $("bestScore").textContent.includes("%") ? "" : "%";
+
+    $("roundCount").textContent =
+      localStorage.getItem("projectiv_rounds") || "0";
+
+    if (!pool.length) {
+      $("poolMessage").textContent =
+        "No questions are available for this selection yet.";
+      $("startQuiz").disabled = true;
+      return;
+    }
+
+    $("startQuiz").disabled = false;
+
+    if (!unused.length) {
+      $("poolMessage").textContent =
+        "You've completed this selection's question cycle. Starting again will shuffle the questions into a fresh cycle.";
+    } else {
+      $("poolMessage").textContent =
+        `${unused.length} questions remain before this selection starts a fresh cycle.`;
+    }
+  }
+
+  function startQuiz() {
+    const { topic, difficulty } = getSelectionKey();
+    const pool = getFilteredPool();
+
+    if (!pool.length) return;
+
+    roundTopic = topic;
+    roundDifficulty = difficulty;
+
+    let used = readUsed(topic, difficulty);
+    let unused = pool.filter(q => !used.includes(q.id));
+
+    // Reset only when the selected pool has been exhausted.
+    if (!unused.length) {
+      used = [];
+      unused = [...pool];
+      saveUsed(topic, difficulty, []);
+    }
+
+    const requested = Number($("countSelect").value);
+    const chosen = shuffle(unused).slice(0, requested);
+
+    if (!chosen.length) return;
+
+    // Record questions when the round begins, so they aren't repeated
+    // within the current selection cycle.
+    used = [...new Set([...used, ...chosen.map(q => q.id)])];
+    saveUsed(topic, difficulty, used);
+
+    roundQuestions = chosen;
+    currentIndex = 0;
+    correct = 0;
+    wrong = 0;
+
+    $("setupPanel").classList.add("quiz-hidden");
+    $("resultPanel").classList.add("quiz-hidden");
+    $("quizPanel").classList.remove("quiz-hidden");
+
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    selectedAnswer = false;
+
+    const q = roundQuestions[currentIndex];
+
+    $("questionCount").textContent =
+      `QUESTION ${currentIndex + 1} OF ${roundQuestions.length}`;
+
+    $("quizBar").style.width =
+      `${currentIndex / roundQuestions.length * 100}%`;
+
+    $("questionCategory").textContent =
+      `${q.topic} • ${q.difficulty}`;
+
+    $("questionText").textContent = q.question;
+    $("feedback").classList.add("quiz-hidden");
+    $("feedback").textContent = "";
+
+    $("nextQuestion").disabled = true;
+    $("nextQuestion").textContent =
+      currentIndex === roundQuestions.length - 1
+        ? "See results →"
+        : "Next question →";
+
+    $("answers").innerHTML = "";
+
+    q.options.forEach((option, index) => {
+      const button = document.createElement("button");
+
+      button.type = "button";
+      button.className = "quiz-answer";
+      button.textContent = option;
+
+      button.addEventListener("click", () => chooseAnswer(index, button));
+
+      $("answers").appendChild(button);
+    });
+  }
+
+  function chooseAnswer(index, selectedButton) {
+    if (selectedAnswer) return;
+
+    selectedAnswer = true;
+
+    const q = roundQuestions[currentIndex];
+    const buttons = [...$("answers").children];
+
+    buttons.forEach((button, i) => {
+      button.disabled = true;
+
+      if (i === q.answer) {
+        button.classList.add("correct");
+      }
+    });
+
+    if (index === q.answer) {
+      correct++;
+      $("feedback").textContent = "Correct! " + q.explanation;
+    } else {
+      wrong++;
+      selectedButton.classList.add("wrong");
+      $("feedback").textContent =
+        "Incorrect. The correct answer is " +
+        q.options[q.answer] +
+        ". " +
+        q.explanation;
+    }
+
+    $("feedback").classList.remove("quiz-hidden");
+    $("nextQuestion").disabled = false;
+  }
+
+  function finishQuiz() {
+    const total = roundQuestions.length;
+    const percentage = Math.round(correct / total * 100);
+
+    const oldBest = Number(localStorage.getItem("projectiv_best") || 0);
+    const rounds = Number(localStorage.getItem("projectiv_rounds") || 0);
+
+    localStorage.setItem(
+      "projectiv_best",
+      String(Math.max(oldBest, percentage))
+    );
+
+    localStorage.setItem("projectiv_rounds", String(rounds + 1));
+
+    $("quizPanel").classList.add("quiz-hidden");
+    $("resultPanel").classList.remove("quiz-hidden");
+
+    $("finalScore").textContent = percentage + "%";
+    $("correctCount").textContent = correct;
+    $("wrongCount").textContent = wrong;
+    $("totalCount").textContent = total;
+
+    $("resultHeading").textContent =
+      percentage >= 80 ? "Excellent work!" :
+      percentage >= 50 ? "Good effort!" :
+      "Keep practising!";
+
+    $("resultMessage").textContent =
+      `You answered ${correct} out of ${total} questions correctly. ` +
+      `Your score was ${percentage}%.`;
+
+    updateSetup();
+  }
+
+  function nextQuestion() {
+    if (!selectedAnswer) return;
+
+    if (currentIndex < roundQuestions.length - 1) {
+      currentIndex++;
+      renderQuestion();
+    } else {
+      finishQuiz();
+    }
+  }
+
+  function returnToSetup() {
+    $("quizPanel").classList.add("quiz-hidden");
+    $("resultPanel").classList.add("quiz-hidden");
+    $("setupPanel").classList.remove("quiz-hidden");
+    updateSetup();
+  }
+
+  $("topicSelect").addEventListener("change", updateSetup);
+  $("difficultySelect").addEventListener("change", updateSetup);
+
+  $("startQuiz").addEventListener("click", startQuiz);
+  $("nextQuestion").addEventListener("click", nextQuestion);
+  $("quitQuiz").addEventListener("click", returnToSetup);
+  $("playAgain").addEventListener("click", returnToSetup);
+
+  updateSetup();
+
+  if (!allQuestions.length) {
+    $("poolMessage").textContent =
+      "The question bank could not be loaded. Check that both question files are in the assets folder.";
+    $("startQuiz").disabled = true;
+  }
+})();
+</script>
+
+</body>
+</html>
